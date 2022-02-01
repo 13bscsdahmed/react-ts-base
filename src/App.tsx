@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.scss';
 import { useRoutes } from 'react-router';
-import AppRoutes from './App.routes';
+import Routes from './routes';
 
 function App() {
-  let appRoutes = useRoutes(AppRoutes);
+  let appRoutes = useRoutes(Routes);
   return (
     <div>
       {appRoutes}

@@ -4,7 +4,7 @@ import Secure from '@modules/secure/Secure';
 import { Navigate } from 'react-router-dom';
 import AuthGuard from '@guards/AuthGuard';
 
-const AppRoutes: RouteObject[] = [
+const Routes: RouteObject[] = [
   {
     path: '',
     element: <AuthGuard><Public/></AuthGuard>
@@ -16,5 +16,5 @@ const AppRoutes: RouteObject[] = [
   { path: "*", element: <Navigate to='' /> }
 ]
 
-export default AppRoutes;
+export default Routes;
 
