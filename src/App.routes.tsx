@@ -1,8 +1,8 @@
 import type { RouteObject } from 'react-router';
-import Public from './modules/public/Public';
-import Secure from './modules/secure/Secure';
+import Public from '@modules/public/Public';
+import Secure from '@modules/secure/Secure';
 import { Navigate } from 'react-router-dom';
-import AuthGuard from './shared/guards/AuthGuard';
+import AuthGuard from '@guards/AuthGuard';
 
 const AppRoutes: RouteObject[] = [
   {

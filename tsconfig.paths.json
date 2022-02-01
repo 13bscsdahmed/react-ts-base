@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@modules/*": ["src/modules/*"],
+      "@shared/*": ["src/shared/*"],
+      "@guards/*": ["src/shared/guards/*"],
+      "@hooks/*": ["src/shared/hooks/*"],
+      "@contexts/*": ["src/shared/contexts/*"],
+      "@utils/*": ["src/shared/utils/*"]
+    }
+  }
+}
