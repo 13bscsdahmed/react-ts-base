@@ -1,8 +1,13 @@
 import { FC } from 'react';
+import i18next from 'i18next';
+import { Outlet } from 'react-router-dom';
 
 const Public: FC<{}> = () => {
   return (
-    <div>Public</div>
+    <>
+      <div className='public'>Public {i18next.t('test')}</div>
+      <Outlet/>
+    </>
   )
 }
 
