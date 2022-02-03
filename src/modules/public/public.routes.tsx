@@ -1,5 +1,6 @@
 import { RouteObject } from 'react-router';
 import Login from '@modules/public/pages/Login';
+import { routesConfig } from '@shared/configs/routes.config';
 
 const PublicRoutes: RouteObject[] = [
   {
@@ -7,7 +8,7 @@ const PublicRoutes: RouteObject[] = [
     element: <Login/>,
   },
   {
-    path: 'login',
+    path: routesConfig.public.login,
     element: <Login/>,
   }
 ]

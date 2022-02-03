@@ -8,7 +8,6 @@ export const BaseApiHelpers = {
     try {
       return localStorage.getItem(appConfig.auth.clientAuthKey);
     } catch (error) {
-      console.log(2);
       return null;
     }
   },
@@ -22,15 +21,12 @@ export const BaseApiHelpers = {
     };
 
     const token = BaseApiHelpers.getAccessToken();
-    console.log(token);
     if (token) {
       // @ts-ignore
       headersObj[appConfig.auth.serverAuthKey] = token;
     }
 
-    Object.assign(headersObj, headersOverrides);
-
-    return headersObj;
+    return { ...headersObj, ...headersOverrides };
   }
 }
 
