@@ -1,4 +1,6 @@
 import appConfig from '@shared/configs/app.config';
+import { Params } from '@shared/services/base/base.models';
+import { AxiosRequestConfig, ResponseType } from 'axios';
 
 export const BaseApiHelpers = {
   /**
@@ -8,7 +10,6 @@ export const BaseApiHelpers = {
     try {
       return localStorage.getItem(appConfig.auth.clientAuthKey);
     } catch (error) {
-      console.log(2);
       return null;
     }
   },
@@ -22,15 +23,24 @@ export const BaseApiHelpers = {
     };
 
     const token = BaseApiHelpers.getAccessToken();
-    console.log(token);
     if (token) {
       // @ts-ignore
       headersObj[appConfig.auth.serverAuthKey] = token;
     }
 
-    Object.assign(headersObj, headersOverrides);
-
-    return headersObj;
+    return { ...headersObj, ...headersOverrides };
+  },
+  /**
+   * prepare axios config
+   */
+  prepareAxiosReqConfig: (params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): AxiosRequestConfig => {
+    const configToPass = {
+      headers: headers ? { ...headers }: {},
+      params,
+      responseType: responseType ? responseType: 'json',
+      ...config
+    };
+    return configToPass
   }
 }
 

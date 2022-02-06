@@ -1,5 +1,6 @@
 import { ReactNode, ReactElement } from 'react';
 import { Navigate } from 'react-router';
+import { routesConfig } from '@shared/configs/routes.config';
 
 interface PublicGuardProps {
   children: ReactNode;
@@ -8,7 +9,7 @@ interface PublicGuardProps {
 const PublicGuard = (props: PublicGuardProps) => {
   const isAuthenticated = false;
   if (isAuthenticated) {
-    return <Navigate to='/dashboard' />
+    return <Navigate to={`/${routesConfig.dashboard.root}`} />
   } else {
     return props.children as ReactElement;
   }

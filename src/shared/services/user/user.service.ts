@@ -1,14 +1,12 @@
 import BaseApiService from '@shared/services/base/base-api.service';
+import { BaseApiRes } from '@shared/services/base/base.models';
+import { User } from '@shared/services/user/user.models';
 
-const baseUrl = 'users';
+const baseUrl = 'user';
 
 export const UserService = {
-  getUser: () => {
-    BaseApiService.get(baseUrl).then((data) => {
-      console.log('data', data)
-    }).catch((error) => {
-      console.log('error', error);
-    })
+  getUser: (): Promise<BaseApiRes<User>> => {
+    return BaseApiService.get(`${baseUrl}/5f61f7b30f1fe63b79678085`)
   }
 }
 

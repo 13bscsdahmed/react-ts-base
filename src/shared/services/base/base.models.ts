@@ -1,12 +1,12 @@
+import { HttpStatusCode } from '@shared/models/http.models';
+
 export interface Params {
   [name: string]: any;
 }
 
-export enum ResponseTypes {
-  arrayBuffer = 'arraybuffer',
-  document = 'document',
-  json = 'json',
-  text = 'text',
-  stream= 'stream',
-  blob= 'blob'
+export interface BaseApiRes<t> {
+  statusCode: HttpStatusCode,
+  success: boolean,
+  message: string,
+  data: t
 }
