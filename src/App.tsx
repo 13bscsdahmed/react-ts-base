@@ -7,7 +7,6 @@ import UserService from '@shared/services/user/user.service';
 
 function App() {
   let appRoutes = useRoutes(Routes);
-  UserService.getUser();
   return (
     <div className='main'>
       <Suspense fallback="Loading ...">
