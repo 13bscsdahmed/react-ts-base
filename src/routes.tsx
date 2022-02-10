@@ -1,12 +1,18 @@
 import type { RouteObject } from 'react-router';
-import Public from '@modules/public/Public';
 import Secure from '@modules/secure/Secure';
 import { Navigate } from 'react-router-dom';
 import SecureRoutes from '@modules/secure/secure.routes';
-import SecureGuard from '@guards/SecureGuard';
 import PublicRoutes from '@modules/public/public.routes';
-import PublicGuard from '@guards/PublicGuard';
 import { routesConfig } from '@shared/configs/routes.config';
+import React from 'react';
+import userSlice from '@store/user/UserSlice';
+import { injectReducers } from '@utils/utils';
+import PublicGuard from '@guards/PublicGuard';
+import SecureGuard from '@guards/SecureGuard';
+const Public = React.lazy(() => import('@modules/public/Public').then((component) => {
+  injectReducers([userSlice]);
+  return component
+}));
 
 const Routes: RouteObject[] = [
   {
@@ -23,4 +29,3 @@ const Routes: RouteObject[] = [
 ]
 
 export default Routes;
-

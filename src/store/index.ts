@@ -1,14 +1,17 @@
 import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
-import userSlice from './user/UserSlice';
 import rootSaga from './saga';
+import { rootSliceGroup } from '@vmw/slices-for-redux';
 
 const sagaMiddleware = createSagaMiddleware();
 
+// Package used for adding dynamic reducers when required
+rootSliceGroup.addReducers({});
+
+
 const store = configureStore({
-  reducer: {
-    user: userSlice.reducer,
-  },
+  reducer: rootSliceGroup.reducer,
+  devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
     thunk: false

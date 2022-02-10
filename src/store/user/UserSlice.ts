@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 import { User } from '@shared/services/user/user.models';
 import { RootState } from '@store/index';
+import { storeConfig } from '@store/store.config';
 
 type UserState = {
   user: User | null,
@@ -15,7 +16,7 @@ const initialState: UserState = {
 }
 
 const userSlice = createSlice({
-  name: 'user',
+  name: storeConfig.slices.user,
   initialState: initialState,
   reducers: {
     fetchUser: (state) => {
@@ -33,11 +34,11 @@ const userSlice = createSlice({
 });
 
 export const userActions = userSlice.actions;
-const self = (state: RootState) => state.user
+const self = (state: RootState) => state?.user
 export const getMemoizedUser = createSelector(
   self,
   (data) => {
-    return data.user;
+    return data?.user;
   }
 )
 
