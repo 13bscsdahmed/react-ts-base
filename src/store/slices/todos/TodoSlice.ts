@@ -1,35 +1,34 @@
-import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction, createSelector, createEntityAdapter } from '@reduxjs/toolkit';
 import { RootState } from '@store/store';
 import { storeConfig } from '@store/store.config';
 import { Todo } from '@shared/services/todo/todo.models';
 
-type TodoState = {
-  todos: Todo[] | null,
-  loading: boolean,
-  error: boolean,
-}
-
-const initialState: TodoState = {
-  todos: null,
-  loading: false,
-  error: false
-}
+const todosAdapter = createEntityAdapter({
+  // Assume IDs are stored in a field other than `book.id`
+  selectId: (todo: Todo) => todo._id,
+})
 
 const todoSlice = createSlice({
   name: storeConfig.slices.todos,
-  initialState: initialState,
+  initialState: todosAdapter.getInitialState({
+    loading: false,
+    error: false
+  }),
   reducers: {
     fetchTodos: (state) => {
       state.loading = true
     },
     fetchTodosSuccess: (state, action: PayloadAction<Todo[]>) => {
-      state.todos = action.payload;
+      todosAdapter.setAll(state, action.payload);
       state.loading = false;
     },
     fetchTodosError: (state) => {
       state.loading = false;
       state.error = true;
     },
+    addTodo: (state, action: PayloadAction<Todo>) => {
+      todosAdapter.addOne(state, action.payload)
+    }
   },
 });
 
@@ -42,4 +41,5 @@ export const getMemoizedTodos = createSelector(
   }
 )
 
+export const todosEntitySelectors = todosAdapter.getSelectors((state: RootState) => state.todos)
 export default todoSlice;
