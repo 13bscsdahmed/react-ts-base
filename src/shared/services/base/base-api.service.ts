@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig, ResponseType } from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse, ResponseType } from 'axios';
 import { BaseApiRes, Params } from '@shared/services/base/base.models';
 import BaseApiHelpers from '@shared/services/base/base-api.helpers';
 
@@ -18,19 +18,19 @@ BaseApiAxiosInstance.interceptors.request.use(req => {
 
 
 export const BaseApiService = {
-  get: (url: string, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<BaseApiRes<any>> => {
+  get: (url: string, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<AxiosResponse<BaseApiRes<any>>> => {
     return BaseApiAxiosInstance.get(url, BaseApiHelpers.prepareAxiosReqConfig(params, headers, responseType, config))
   },
-  post: (url: string, body: any, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<BaseApiRes<any>> => {
+  post: (url: string, body: any, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<AxiosResponse<BaseApiRes<any>>> => {
     return BaseApiAxiosInstance.post(url, body, BaseApiHelpers.prepareAxiosReqConfig(params, headers, responseType, config))
   },
-  put: (url: string, body: any, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<BaseApiRes<any>> => {
+  put: (url: string, body: any, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<AxiosResponse<BaseApiRes<any>>> => {
     return BaseApiAxiosInstance.put(url, body, BaseApiHelpers.prepareAxiosReqConfig(params, headers, responseType, config))
   },
-  patch: (url: string, body: any, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<BaseApiRes<any>> => {
+  patch: (url: string, body: any, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<AxiosResponse<BaseApiRes<any>>> => {
     return BaseApiAxiosInstance.patch(url, body, BaseApiHelpers.prepareAxiosReqConfig(params, headers, responseType, config))
   },
-  delete: (url: string, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<BaseApiRes<any>> => {
+  delete: (url: string, params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): Promise<AxiosResponse<BaseApiRes<any>>> => {
     return BaseApiAxiosInstance.delete(url, BaseApiHelpers.prepareAxiosReqConfig(params, headers, responseType, config))
   }
 }

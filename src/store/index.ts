@@ -1,16 +1,25 @@
 import createSagaMiddleware from 'redux-saga';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore, Reducer } from '@reduxjs/toolkit';
 import rootSaga from './saga';
-import { rootSliceGroup } from '@vmw/slices-for-redux';
+import UserSlice from '@store/user/UserSlice';
+import createReducer from '@store/reducers';
+import { storeConfig } from '@store/store.config';
+import ConfigSlice from '@store/config/ConfigSlice';
 
 const sagaMiddleware = createSagaMiddleware();
 
-// Package used for adding dynamic reducers when required
-rootSliceGroup.addReducers({});
+export interface AsyncReducer {
+  [key: string]: Reducer
+}
+
+const asyncReducers:AsyncReducer = {
+  // [storeConfig.slices.config]: ConfigSlice.reducer
+}
+
 
 
 const store = configureStore({
-  reducer: rootSliceGroup.reducer,
+  reducer: {},
   devTools: process.env.NODE_ENV !== 'production',
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
@@ -19,6 +28,18 @@ const store = configureStore({
 });
 
 sagaMiddleware.run(rootSaga);
+
+export const injectReducer = (key: string, reducer: Reducer) => {
+  asyncReducers[key] = reducer;
+  store.replaceReducer(createReducer({...asyncReducers}))
+}
+
+export const removeReducer = (key: string) => {
+  delete asyncReducers[key];
+  store.replaceReducer(createReducer({...asyncReducers}))
+}
+
+console.log('store', store.getState());
 
 
 export default store;

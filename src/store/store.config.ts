@@ -1,5 +1,7 @@
 export const storeConfig = {
   slices: {
-    user: 'user'
+    user: 'user',
+    todos: 'todos',
+    config: 'config'
   }
 }

@@ -4,12 +4,13 @@ import UserService from '@shared/services/user/user.service';
 import { User } from '@shared/services/user/user.models';
 import { BaseApiRes } from '@shared/services/base/base.models';
 import { userActions } from './UserSlice';
+import { AxiosResponse } from 'axios';
 
 export function* fetchUserSaga() {
   try {
     yield put(userActions.fetchUser())
-    const response: BaseApiRes<User> = yield call(UserService.getUser);
-    yield put(userActions.fetchUserSuccess(response.data));
+    const response: AxiosResponse<BaseApiRes<User>> = yield call(UserService.getUser);
+    yield put(userActions.fetchUserSuccess(response.data.data));
   } catch (err) {
     yield put(userActions.fetchUserError())
   }
