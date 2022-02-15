@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
-import { RootState } from '@store/index';
+import { RootState } from '@store/store';
 import { storeConfig } from '@store/store.config';
 import { Todo } from '@shared/services/todo/todo.models';
 

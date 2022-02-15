@@ -1,10 +1,10 @@
 import { FC, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { todoActionTypes } from '@store/todos';
-import { injectReducer, removeReducer } from '@store/index';
+import { todoActionTypes } from '@store/slices';
+import { injectReducer, removeReducer } from '@store/store';
 import { storeConfig } from '@store/store.config';
-import todoSlice from '@store/todos/TodoSlice';
+import todoSlice from '@store/slices/todos/TodoSlice';
 
 export const Dashboard: FC<{}> = () => {
   const dispatch = useDispatch();

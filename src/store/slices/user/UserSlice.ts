@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction, createSelector } from '@reduxjs/toolkit';
 import { User } from '@shared/services/user/user.models';
-import { RootState } from '@store/index';
+import { RootState } from '@store/store';
 import { storeConfig } from '@store/store.config';
 
 type UserState = {

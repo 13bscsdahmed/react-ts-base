@@ -1,24 +1,23 @@
 import { all, call, put, takeLatest } from 'redux-saga/effects';
-import { todoActionTypes } from '@store/todos/TodoActions';
 import TodoService from '@shared/services/todo/todo.service';
 import { BaseApiRes } from '@shared/services/base/base.models';
-import { todoActions } from '@store/todos/TodoSlice';
 import { Todo } from '@shared/services/todo/todo.models';
 import { AxiosResponse } from 'axios';
+import { configActionTypes } from '@store/slices/config/ConfigActions';
+import { configActions } from '@store/slices/config/ConfigSlice';
 
-export function* fetchTodoSaga() {
+export function* fetchConfigSaga() {
   try {
-    yield put(todoActions.fetchTodos())
+    yield put(configActions.fetchConfig())
     const response: AxiosResponse<BaseApiRes<Todo[]>> = yield call(TodoService.getTodos);
-    console.log('todo res', response);
-    yield put(todoActions.fetchTodosSuccess(response.data.data));
+    yield put(configActions.fetchConfigSuccess(response.data.data));
   } catch (err) {
-    yield put(todoActions.fetchTodosError())
+    yield put(configActions.fetchConfigError())
   }
 }
 
-export function* TodoSagas() {
+export function* ConfigSagas() {
   yield all([
-    takeLatest(todoActionTypes.FETCH_TODOS, fetchTodoSaga)
+    takeLatest(configActionTypes.FETCH_CONFIG, fetchConfigSaga)
   ]);
 }

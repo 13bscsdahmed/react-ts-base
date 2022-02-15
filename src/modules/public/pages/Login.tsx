@@ -1,10 +1,10 @@
 import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMemoizedUser, userActionsTypes } from '@store/user';
-import { injectReducer, removeReducer } from '@store/index';
+import { getMemoizedUser, userActionsTypes } from '@store/slices';
+import { injectReducer, removeReducer } from '@store/store';
 import { storeConfig } from '@store/store.config';
-import userSlice from '@store/user/UserSlice';
+import userSlice from '@store/slices/user/UserSlice';
 
 export const Login: FC<{}> = () => {
   const dispatch = useDispatch();

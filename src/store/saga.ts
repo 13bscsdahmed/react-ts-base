@@ -1,8 +1,12 @@
 import { all, fork } from 'redux-saga/effects';
-import { UserSagas } from '@store/user';
-import { TodoSagas } from '@store/todos';
-import { ConfigSagas } from '@store/config';
+import { UserSagas, TodoSagas, ConfigSagas } from '@store/slices';
 
 export default function* rootSaga() {
-  yield all([fork(UserSagas), fork(TodoSagas), fork(ConfigSagas)]);
+  yield all(
+    [
+      fork(UserSagas),
+      fork(TodoSagas),
+      fork(ConfigSagas)
+    ]
+  );
 }

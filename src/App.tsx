@@ -2,13 +2,11 @@ import './locales/i18n';
 import React, { Suspense, useEffect } from 'react';
 import { useLocation, useRoutes } from 'react-router';
 import Routes from './routes';
-import UserService from '@shared/services/user/user.service';
-import { injectReducer } from '@store/index';
+import { injectReducer } from '@store/store';
 import { storeConfig } from '@store/store.config';
-import ConfigSlice from '@store/config/ConfigSlice';
-import { todoActionTypes } from '@store/todos';
+import ConfigSlice from '@store/slices/config/ConfigSlice';
 import { useDispatch } from 'react-redux';
-import { configActionTypes } from '@store/config';
+import { configActionTypes } from '@store/slices';
 
 
 function App() {

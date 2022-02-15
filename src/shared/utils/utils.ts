@@ -1,4 +1,4 @@
-import store, { injectReducer } from '@store/index';
+import store, { injectReducer } from '@store/store';
 import { Slice } from '@reduxjs/toolkit';
 
 export const injectReducers = (slices: Slice[]) => {
