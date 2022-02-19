@@ -29,7 +29,10 @@
     "prefer-destructuring": "off",
     "react/destructuring-assignment": "off",
     "react/jsx-props-no-spreading": "off",
-    "default-param-last": "off"
+    "default-param-last": "off",
+    "no-param-reassign": "off",
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off"
   },
   "settings": {
     "import/resolver": {

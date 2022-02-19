@@ -2,7 +2,7 @@ import React from 'react';
 import { RouteObject } from 'react-router';
 import { routesConfig } from '@shared/configs/routes.config';
 
-const Login = React.lazy(() => import('@modules/public/pages/Login'));
+const Login = React.lazy(() => import('@modules/public/pages/Login/Login'));
 
 const PublicRoutes: RouteObject[] = [
 	{

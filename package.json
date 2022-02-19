@@ -62,6 +62,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
     "react-app-rewire-alias": "^1.1.7",
-    "react-app-rewired": "^2.1.11"
+    "react-app-rewired": "^2.1.11",
+    "typescript-plugin-css-modules": "^3.4.0"
   }
 }
