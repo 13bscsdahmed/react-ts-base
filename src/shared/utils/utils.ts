@@ -1,10 +1,3 @@
-import store, { injectReducer } from '@store/store';
-import { Slice } from '@reduxjs/toolkit';
+export const myUtilMethod = () => {
 
-export const injectReducers = (slices: Slice[]) => {
-  slices.forEach((slice) => {
-    if (!store?.getState?.()?.[slice?.name]) {
-      injectReducer(slice?.name, slice.reducer)
-    }
-  })
 }

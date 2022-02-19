@@ -8,16 +8,29 @@ export interface AsyncReducer {
 
 const asyncReducers:AsyncReducer = {};
 
-export const injectReducer = (key: string, reducer: Reducer) => {
-  if (!asyncReducers[key]) {
-    asyncReducers[key] = reducer;
-    store.replaceReducer(createReducer({...asyncReducers}))
-  }
+export const injectReducers = (keys: string[], reducers: Reducer[]) => {
+  let keysUpdated = false;
+  keys.forEach((key, index) => {
+    if (!asyncReducers[key]) {
+      asyncReducers[key] = reducers[index];
+      keysUpdated = true;
+    }
+    if (keysUpdated) {
+      store.replaceReducer(createReducer({...asyncReducers}));
+    }
+  })
+
 }
 
-export const removeReducer = (key: string) => {
-  if (asyncReducers[key]) {
-    delete asyncReducers[key];
+export const ejectReducers = (keys: string[]) => {
+  let keysUpdated = false;
+  keys.forEach((key) => {
+    if (asyncReducers[key]) {
+      delete asyncReducers[key];
+      keysUpdated = true;
+    }
+  })
+  if (keysUpdated) {
     store.replaceReducer(createReducer({...asyncReducers}));
   }
 }

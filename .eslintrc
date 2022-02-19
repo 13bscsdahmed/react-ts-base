@@ -23,7 +23,13 @@
     "react-hooks/exhaustive-deps": "warn",
     "import/no-unresolved": "off",
     "sort-imports": "off",
-    "import/order": "off"
+    "import/order": "off",
+    "import/prefer-default-export": "off",
+    "arrow-body-style": "off",
+    "prefer-destructuring": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "default-param-last": "off"
   },
   "settings": {
     "import/resolver": {

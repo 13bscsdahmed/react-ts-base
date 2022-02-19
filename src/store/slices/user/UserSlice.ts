@@ -3,30 +3,34 @@ import { User } from '@shared/services/user/user.models';
 import { RootState } from '@store/store';
 import { storeConfig } from '@store/store.config';
 
-type UserState = {
+export type UserState = {
   user: User | null,
   loading: boolean,
   error: boolean,
+  isLoggedIn: boolean
 }
 
 const initialState: UserState = {
   user: null,
   loading: false,
-  error: false
+  error: false,
+  isLoggedIn: false
 }
 
 const userSlice = createSlice({
   name: storeConfig.slices.user,
   initialState: initialState,
   reducers: {
-    fetchUser: (state) => {
-      state.loading = true
+    login: (state) => {
+      state.loading = true;
     },
-    fetchUserSuccess: (state, action: PayloadAction<User>) => {
+    loginSuccess: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
+      state.isLoggedIn = true;
+      state.error = false;
       state.loading = false;
     },
-    fetchUserError: (state) => {
+    loginError: (state) => {
       state.loading = false;
       state.error = true;
     },
