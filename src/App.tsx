@@ -13,10 +13,12 @@ function App() {
 	const location = useLocation();
 	const appRoutes = useRoutes(Routes);
 	useEffect(() => {
-		injectReducers([storeConfig.slices.config], [ConfigSlice.reducer]);
 		dispatch({ type: configActionTypes.FETCH_CONFIG });
+	}, [dispatch]);
+	useEffect(() => {
+		injectReducers([storeConfig.slices.config], [ConfigSlice.reducer]);
 		console.log('location', location);
-	}, [location, dispatch]);
+	}, [location]);
 	return (
 		<div className='main'>
 			<Suspense fallback='Loading ...'>{appRoutes}</Suspense>

@@ -6,22 +6,28 @@ import SecureRoutes from '@modules/secure/secure.routes';
 import PublicRoutes from '@modules/public/public.routes';
 import { routesConfig } from '@shared/configs/routes.config';
 import React from 'react';
-import PublicGuard from '@guards/PublicGuard';
-import SecureGuard from '@guards/SecureGuard';
-
+import AuthGuard from '@guards/AuthGuard';
 
 const Routes: RouteObject[] = [
-  {
-    path: routesConfig.public.root,
-    element: <PublicGuard><Public/></PublicGuard>,
-    children: PublicRoutes
-  },
-  {
-    path: routesConfig.secure.root,
-    element:<SecureGuard><Secure/></SecureGuard>,
-    children: SecureRoutes
-  },
-  { path: "*", element: <Navigate to='' /> }
-]
+	{
+		path: routesConfig.public.root,
+		element: (
+			<AuthGuard>
+				<Public />
+			</AuthGuard>
+		),
+		children: PublicRoutes,
+	},
+	{
+		path: routesConfig.secure.root,
+		element: (
+			<AuthGuard>
+				<Secure />
+			</AuthGuard>
+		),
+		children: SecureRoutes,
+	},
+	{ path: '*', element: <Navigate to='' /> },
+];
 
 export default Routes;

@@ -25,6 +25,7 @@ export const injectReducers = (keys: string[], reducers: Reducer[]) => {
 	});
 };
 
+// Use this only in extreme cases where you need to eject a big part of state as this is the recommended approach by the React team and not on every part of slice
 export const ejectReducers = (keys: string[]) => {
 	let keysUpdated = false;
 	keys.forEach(key => {

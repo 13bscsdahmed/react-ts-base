@@ -1,11 +1,11 @@
-export interface User {
-  _id: number;
-  firstName: string;
-  lastName: string;
-  userType: UserType
+export enum UserType {
+	admin = 'ADMIN',
+	user = 'USER',
 }
 
-export enum UserType {
-  admin = 'ADMIN',
-  user = 'USER'
+export interface User {
+	_id: string;
+	firstName: string;
+	lastName: string;
+	userType: UserType;
 }

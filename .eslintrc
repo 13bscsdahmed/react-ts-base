@@ -32,7 +32,8 @@
     "default-param-last": "off",
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "no-shadow": "off"
   },
   "settings": {
     "import/resolver": {
