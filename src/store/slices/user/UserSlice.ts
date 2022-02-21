@@ -19,8 +19,11 @@ const userSlice = createSlice({
   name: storeConfig.slices.user,
   initialState,
   reducers: {
-    login: state => {
-      state.loading = true;
+    setLoading: (state, action: PayloadAction<boolean>) => {
+      if (state.loading !== action.payload) {
+        state.loading = action.payload;
+      }
+      return state;
     },
     loginSuccess: (state, action: PayloadAction<User>) => {
       state.user = action.payload;

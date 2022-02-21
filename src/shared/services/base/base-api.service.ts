@@ -1,6 +1,8 @@
 import axios, { AxiosRequestConfig, AxiosResponse, ResponseType } from 'axios';
 import { BaseApiRes, Params } from '@shared/services/base/base.models';
 import BaseApiHelpers from '@shared/services/base/base-api.helpers';
+import { HttpStatusCode } from '@shared/models/http.models';
+import { clearAccessToken } from '@utils/auth';
 
 const BaseApiAxiosInstance = axios.create({
   baseURL: `${process.env.REACT_APP_BASE_API_URL}:${+(process.env.REACT_APP_BASE_API_PORT ?? 3000)}/api/${
@@ -15,6 +17,18 @@ BaseApiAxiosInstance.interceptors.request.use(
     return req;
   },
   error => {
+    return Promise.reject(error);
+  }
+);
+
+BaseApiAxiosInstance.interceptors.response.use(
+  res => {
+    return res;
+  },
+  error => {
+    if (error.response.status === HttpStatusCode.UNAUTHORIZED) {
+      clearAccessToken();
+    }
     return Promise.reject(error);
   }
 );
