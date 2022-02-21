@@ -13,12 +13,12 @@ i18n
     fallbackLng: 'en',
     resources: {
       en: {
-        translation: TRANSLATIONS_EN
+        translation: TRANSLATIONS_EN,
       },
       fr: {
-        translation: TRANSLATIONS_FR
+        translation: TRANSLATIONS_FR,
       },
-    }
+    },
   });
 
 i18n.changeLanguage('en');

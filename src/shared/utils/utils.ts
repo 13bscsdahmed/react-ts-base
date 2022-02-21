@@ -1,3 +1,1 @@
-export const myUtilMethod = () => {
-
-}
+export const myUtilMethod = () => {};

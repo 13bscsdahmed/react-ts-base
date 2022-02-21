@@ -5,8 +5,8 @@ export interface Params {
 }
 
 export interface BaseApiRes<t> {
-  statusCode: HttpStatusCode,
-  success: boolean,
-  message: string,
-  data: t
+  statusCode: HttpStatusCode;
+  success: boolean;
+  message: string;
+  data: t;
 }

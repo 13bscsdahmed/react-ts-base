@@ -1,8 +1,8 @@
 export const appConfig = {
   auth: {
     clientAuthKey: 'accessToken',
-    serverAuthKey: 'Authorization'
-  }
-}
+    serverAuthKey: 'Authorization',
+  },
+};
 
 export default appConfig;

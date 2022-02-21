@@ -8,7 +8,7 @@ const baseUrl = 'auth';
 export const AuthService = {
   login: (user: Auth): Promise<AxiosResponse<BaseApiRes<{}>>> => {
     return BaseApiService.post(`${baseUrl}`, user);
-  }
-}
+  },
+};
 
 export default AuthService;

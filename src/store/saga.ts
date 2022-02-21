@@ -7,11 +7,5 @@ export interface SagaAction<t> {
 }
 
 export default function* rootSaga() {
-  yield all(
-    [
-      fork(UserSagas),
-      fork(TodoSagas),
-      fork(ConfigSagas)
-    ]
-  );
+  yield all([fork(UserSagas), fork(TodoSagas), fork(ConfigSagas)]);
 }

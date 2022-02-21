@@ -5,8 +5,8 @@ import { routesConfig } from '@shared/configs/routes.config';
 const DashboardRoutes: RouteObject[] = [
   {
     path: routesConfig.dashboard.profile,
-    element: <Profile/>
-  }
-]
+    element: <Profile />,
+  },
+];
 
 export default DashboardRoutes;

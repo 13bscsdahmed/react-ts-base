@@ -13,28 +13,28 @@ import classes from './Login.module.css';
 import { routesConfig } from '@shared/configs/routes.config';
 
 const Login: FC<{}> = () => {
-	const navigate = useNavigate();
-	const dispatch = useDispatch();
-	const isLoggedIn = useSelector((state: RootState) => state.user?.isLoggedIn);
-	const userMemoized = useSelector(getMemoizedUser);
-	// const user = useSelector((state: RootState) => state?.[storeConfig.slices?.user]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector((state: RootState) => state.user?.isLoggedIn);
+  const userMemoized = useSelector(getMemoizedUser);
+  // const user = useSelector((state: RootState) => state?.[storeConfig.slices?.user]);
 
-	// console.log('user', user);
-	console.log('user memoized', userMemoized);
-	useEffect(() => {
-		injectReducers([storeConfig.slices.user], [userSlice.reducer]);
-	}, []);
+  // console.log('user', user);
+  console.log('user memoized', userMemoized);
+  useEffect(() => {
+    injectReducers([storeConfig.slices.user], [userSlice.reducer]);
+  }, []);
 
-	const loginHandler = (user: Auth) => {
-		console.log('user', user);
-		dispatch({ type: userActionsTypes.LOGIN, payload: { user, url: `/${routesConfig.dashboard.root}`, navigate } });
-	};
-	return (
-		<div className={classes['login-container']}>
-			This is the login div
-			<Link to='/dashboard'>Link to dashboard</Link>
-			<LoginForm onLogin={loginHandler} />
-		</div>
-	);
+  const loginHandler = (user: Auth) => {
+    console.log('user', user);
+    dispatch({ type: userActionsTypes.LOGIN, payload: { user, url: `/${routesConfig.dashboard.root}`, navigate } });
+  };
+  return (
+    <div className={classes['login-container']}>
+      This is the login div
+      <Link to='/dashboard'>Link to dashboard</Link>
+      <LoginForm onLogin={loginHandler} />
+    </div>
+  );
 };
 export default Login;

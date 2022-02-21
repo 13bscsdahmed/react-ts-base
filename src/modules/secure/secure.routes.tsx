@@ -7,17 +7,17 @@ import React from 'react';
 const Dashboard = React.lazy(() => import('@modules/secure/modules/dashboard/Dashboard'));
 
 const SecureRoutes: RouteObject[] = [
-	{
-		path: routesConfig.dashboard.root,
-		element: <Dashboard />,
-		children: [
-			{
-				path: routesConfig.dashboard.profile,
-				element: <Profile />,
-				children: ProfileRoutes,
-			},
-		],
-	},
+  {
+    path: routesConfig.dashboard.root,
+    element: <Dashboard />,
+    children: [
+      {
+        path: routesConfig.dashboard.profile,
+        element: <Profile />,
+        children: ProfileRoutes,
+      },
+    ],
+  },
 ];
 
 export default SecureRoutes;

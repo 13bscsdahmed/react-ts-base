@@ -7,8 +7,8 @@ const baseUrl = 'todo';
 
 export const TodoService = {
   getTodos: (): Promise<AxiosResponse<BaseApiRes<Todo[]>>> => {
-    return BaseApiService.get(`${baseUrl}`)
-  }
-}
+    return BaseApiService.get(`${baseUrl}`);
+  },
+};
 
 export default TodoService;

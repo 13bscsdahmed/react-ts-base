@@ -9,25 +9,25 @@ import React from 'react';
 import AuthGuard from '@guards/AuthGuard';
 
 const Routes: RouteObject[] = [
-	{
-		path: routesConfig.public.root,
-		element: (
-			<AuthGuard>
-				<Public />
-			</AuthGuard>
-		),
-		children: PublicRoutes,
-	},
-	{
-		path: routesConfig.secure.root,
-		element: (
-			<AuthGuard>
-				<Secure />
-			</AuthGuard>
-		),
-		children: SecureRoutes,
-	},
-	{ path: '*', element: <Navigate to='' /> },
+  {
+    path: routesConfig.public.root,
+    element: (
+      <AuthGuard>
+        <Public />
+      </AuthGuard>
+    ),
+    children: PublicRoutes,
+  },
+  {
+    path: routesConfig.secure.root,
+    element: (
+      <AuthGuard>
+        <Secure />
+      </AuthGuard>
+    ),
+    children: SecureRoutes,
+  },
+  { path: '*', element: <Navigate to='' /> },
 ];
 
 export default Routes;

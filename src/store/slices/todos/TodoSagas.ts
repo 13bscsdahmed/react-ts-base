@@ -9,17 +9,15 @@ import store from '@store/store';
 
 export function* fetchTodoSaga() {
   try {
-    yield put(todoActions.fetchTodos())
+    yield put(todoActions.fetchTodos());
     const response: AxiosResponse<BaseApiRes<Todo[]>> = yield call(TodoService.getTodos);
     yield put(todoActions.fetchTodosSuccess(response.data.data));
     console.log('todos selectors', todosEntitySelectors.selectAll(store.getState()));
   } catch (err) {
-    yield put(todoActions.fetchTodosError())
+    yield put(todoActions.fetchTodosError());
   }
 }
 
 export function* TodoSagas() {
-  yield all([
-    takeLatest(todoActionTypes.FETCH_TODOS, fetchTodoSaga)
-  ]);
+  yield all([takeLatest(todoActionTypes.FETCH_TODOS, fetchTodoSaga)]);
 }

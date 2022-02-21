@@ -8,16 +8,14 @@ import { configActions } from '@store/slices/config/ConfigSlice';
 
 export function* fetchConfigSaga() {
   try {
-    yield put(configActions.fetchConfig())
+    yield put(configActions.fetchConfig());
     const response: AxiosResponse<BaseApiRes<Todo[]>> = yield call(TodoService.getTodos);
     yield put(configActions.fetchConfigSuccess(response.data.data));
   } catch (err) {
-    yield put(configActions.fetchConfigError())
+    yield put(configActions.fetchConfigError());
   }
 }
 
 export function* ConfigSagas() {
-  yield all([
-    takeLatest(configActionTypes.FETCH_CONFIG, fetchConfigSaga)
-  ]);
+  yield all([takeLatest(configActionTypes.FETCH_CONFIG, fetchConfigSaga)]);
 }
