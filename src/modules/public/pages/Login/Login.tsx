@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMemoizedUser, userActionsTypes } from '@store/slices';
@@ -11,7 +11,6 @@ const Login: FC<{}> = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userMemoized = useSelector(getMemoizedUser);
-  // const user = useSelector((state: RootState) => state?.[storeConfig.slices?.user]);
 
   console.log('user memoized', userMemoized);
   useEffect(() => {}, []);

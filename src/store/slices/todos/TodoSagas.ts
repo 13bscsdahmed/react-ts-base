@@ -2,17 +2,15 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { todoActionTypes } from '@store/slices/todos/TodoActions';
 import TodoService from '@shared/services/todo/todo.service';
 import { BaseApiRes } from '@shared/services/base/base.models';
-import { todoActions, todosEntitySelectors } from '@store/slices/todos/TodoSlice';
+import { todoActions } from '@store/slices/todos/TodoSlice';
 import { Todo } from '@shared/services/todo/todo.models';
 import { AxiosResponse } from 'axios';
-import store from '@store/store';
 
 export function* fetchTodoSaga() {
   try {
     yield put(todoActions.fetchTodos());
     const response: AxiosResponse<BaseApiRes<Todo[]>> = yield call(TodoService.getTodos);
     yield put(todoActions.fetchTodosSuccess(response.data.data));
-    console.log('todos selectors', todosEntitySelectors.selectAll(store.getState()));
   } catch (err) {
     yield put(todoActions.fetchTodosError());
   }

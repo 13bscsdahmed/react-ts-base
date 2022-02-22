@@ -9,5 +9,6 @@ export const routesConfig = {
   dashboard: {
     root: 'dashboard',
     profile: 'profile',
+    todos: 'todos',
   },
 };

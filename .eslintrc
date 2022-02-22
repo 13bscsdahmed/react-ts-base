@@ -33,7 +33,10 @@
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-shadow": "off"
+    "no-shadow": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
+
   },
   "settings": {
     "import/resolver": {
