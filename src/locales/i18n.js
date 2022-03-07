@@ -11,6 +11,7 @@ i18n
   .init({
     debug: process.env.NODE_ENV === 'development',
     fallbackLng: 'en',
+    keySeparator: '.',
     resources: {
       en: {
         translation: TRANSLATIONS_EN,

@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMemoizedUser, userActionsTypes } from '@store/slices';
 import { Auth } from '@shared/services/auth/auth.model';
-import LoginForm from '@modules/public/components/LoginForm';
+import LoginForm from '@modules/public/components/LoginForm/LoginForm';
 import classes from './Login.module.css';
 import { routesConfig } from '@shared/configs/routes.config';
 

@@ -1,7 +1,9 @@
 .input {
   display: flex;
-  align-items: center;
   margin-bottom: 0.5rem;
+}
+label {
+  width: 120px;
 }
 
 .input label {
@@ -15,4 +17,9 @@
   border: 1px solid #ccc;
   font: inherit;
   padding-left: 0.5rem;
+}
+
+.error {
+  margin: 4px 0;
+  color: red;
 }
