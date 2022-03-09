@@ -1,4 +1,4 @@
-import React, { FC, HTMLInputTypeAttribute } from 'react';
+import React, { FC, FocusEvent, HTMLInputTypeAttribute, ChangeEvent } from 'react';
 import classes from './Input.module.scss';
 import { useField } from 'formik';
 
@@ -7,15 +7,22 @@ interface Props {
   name: string;
   placeholder: string;
   type: HTMLInputTypeAttribute;
-  onChange?: (event: React.ChangeEvent<any>) => void;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
 }
 
 export const Input: FC<Props> = props => {
-  const [field, meta, { setValue }] = useField({ name: props.name });
-  const changeHandler = (event: React.ChangeEvent<any>) => {
+  const [field, meta, { setValue, setTouched }] = useField({ name: props.name });
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
     if (props.onChange) {
       props?.onChange(event);
+    }
+  };
+  const handleBlur = (event: FocusEvent<HTMLInputElement>) => {
+    setTouched(true);
+    if (props.onBlur) {
+      props.onBlur(event);
     }
   };
   return (
@@ -27,7 +34,8 @@ export const Input: FC<Props> = props => {
           type={props.type}
           name={props.name}
           placeholder={props.placeholder}
-          onChange={changeHandler}
+          onChange={handleChange}
+          onBlur={handleBlur}
         />
         {meta.error && <p className={classes.error}>{meta?.error}</p>}
       </div>
