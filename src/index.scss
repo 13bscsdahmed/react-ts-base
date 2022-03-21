@@ -9,3 +9,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.bg-error {
+  background-color: red;
+  color: #fff;
+}
+
+.bg-warning {
+  background-color: yellow;
+  color: #000;
+}
+
+.bg-success {
+  background-color: green;
+  color: #fff;
+}
+
+.bg-info {
+  background-color: cyan;
+  color: #000;
+}
