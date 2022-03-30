@@ -13,12 +13,19 @@
 
 .item {
     border: 1px solid #ccc;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     box-sizing: border-box;
     width: 100%;
     min-width: 100px;
     display: flex;
     overflow: hidden;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    opacity: 0;
+    transition: 0.3s ease-in-out opacity;
+}
+
+.show{
+    opacity: 1;
 }
 
 .status {

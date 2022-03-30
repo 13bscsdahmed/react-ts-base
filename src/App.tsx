@@ -29,12 +29,36 @@ function App() {
         type='button'
         onClick={() =>
           toastController.show(
-            'Duis Lorem irure ex nisi laborum tempor non aliqua sunt. Culpa anim velit elit non fugiat dolor Lorem sunt deserunt commodo esse do. Elit ullamco ad dolor nulla id laborum occaecat. Eiusmod exercitation ipsum nostrud cillum occaecat sint quis magna irure cupidatat adipisicing consequat nulla qui.',
-            { autoClose: false, status: ToastStatuses.INFO }
+            'Proident quis ea cupidatat exercitation voluptate ea exercitation incididunt in nostrud. Adipisicing ut est enim qui elit enim eu quis Lorem nostrud incididunt enim. Nostrud excepteur ut tempor consectetur sunt proident ex mollit eu veniam esse duis amet. Irure sunt elit sit amet voluptate exercitation. Officia officia sit sunt commodo Lorem ut et ex.',
+            { status: ToastStatuses.ERROR }
           )
         }
       >
-        Create
+        Error Toast
+      </button>
+
+      <button
+        type='button'
+        onClick={() =>
+          toastController.show(
+            'Quis cillum aute qui commodo qui consectetur sint proident. Quis est aute culpa eiusmod Lorem sint. Lorem officia sit fugiat eu. Eu officia laboris enim id labore quis est ex non aute velit veniam cupidatat id. Ipsum esse cupidatat magna eu elit officia. Non elit exercitation reprehenderit veniam in labore irure pariatur sint cillum occaecat mollit laborum dolore. Incididunt magna eiusmod amet reprehenderit commodo nostrud cillum ut veniam consectetur excepteur.',
+            { status: ToastStatuses.INFO }
+          )
+        }
+      >
+        Info Toast
+      </button>
+
+      <button
+        type='button'
+        onClick={() =>
+          toastController.show(
+            'Fugiat reprehenderit cillum consectetur Lorem labore dolore et irure cupidatat ea. Sunt ullamco minim irure magna Lorem. Duis consectetur in culpa nisi laboris cillum ex amet laboris incididunt ea incididunt. Labore aliqua non id magna adipisicing veniam eiusmod duis consequat.',
+            { status: ToastStatuses.SUCCESS }
+          )
+        }
+      >
+        Suuccess Toast
       </button>
       <Suspense fallback='Loading ...'>{appRoutes}</Suspense>
     </div>

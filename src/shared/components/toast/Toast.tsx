@@ -21,7 +21,7 @@ const Toast: FC<ToastConfig> = ({ maxToastLimit }) => {
 
   const remove = (id: string) => {
     if (!id) removeAll();
-    setToastList(prev => prev.filter(i => i.id !== id));
+    setToastList(prev => prev.filter(toast => toast.id !== id));
   };
 
   useEffect(() => {
