@@ -7,7 +7,9 @@
       "@guards/*": ["src/shared/guards/*"],
       "@hooks/*": ["src/shared/hooks/*"],
       "@contexts/*": ["src/shared/contexts/*"],
-      "@utils/*": ["src/shared/utils/*"]
+      "@utils/*": ["src/shared/utils/*"],
+      "@store/*": ["src/store/*"],
+      "@assets/*": ["src/assets/*"]
     }
   }
 }

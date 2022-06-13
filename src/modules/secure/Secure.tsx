@@ -6,10 +6,10 @@ const Secure: FC<{}> = () => {
     <>
       <div className='secure-container'>Secure 123</div>
       <div className='dashboard-container'>
-        <Outlet/>
+        <Outlet />
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Secure;

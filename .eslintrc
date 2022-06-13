@@ -1,0 +1,50 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "import/extensions": "off",
+    "react/function-component-definition": "off",
+    "no-unused-vars": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "import/no-unresolved": "off",
+    "sort-imports": "off",
+    "import/order": "off",
+    "import/prefer-default-export": "off",
+    "arrow-body-style": "off",
+    "prefer-destructuring": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-props-no-spreading": "off",
+    "default-param-last": "off",
+    "no-param-reassign": "off",
+    "no-underscore-dangle": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-shadow": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "react/require-default-props": "off"
+
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"]
+      }
+    }
+  }
+}

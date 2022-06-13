@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 
 export const Profile: FC<{}> = () => {
-  return(
+  return (
     <>
       <div>this is profile route</div>
-      <Outlet/>
+      <Outlet />
     </>
-  )
-}
+  );
+};
 
 export default Profile;

@@ -1,18 +1,9 @@
 import appConfig from '@shared/configs/app.config';
 import { Params } from '@shared/services/base/base.models';
 import { AxiosRequestConfig, ResponseType } from 'axios';
+import { getAccessToken } from '@utils/auth';
 
 export const BaseApiHelpers = {
-  /**
-   * Get access token from local storage
-   */
-  getAccessToken: () => {
-    try {
-      return localStorage.getItem(appConfig.auth.clientAuthKey);
-    } catch (error) {
-      return null;
-    }
-  },
   /**
    * create default http headers for Content-Type, Accept and Authorization
    */
@@ -22,10 +13,10 @@ export const BaseApiHelpers = {
       Accept: '*/*',
     };
 
-    const token = BaseApiHelpers.getAccessToken();
+    const token = getAccessToken();
     if (token) {
       // @ts-ignore
-      headersObj[appConfig.auth.serverAuthKey] = token;
+      headersObj[appConfig.auth.serverAuthKey] = `Bearer ${token}`;
     }
 
     return { ...headersObj, ...headersOverrides };
@@ -33,15 +24,20 @@ export const BaseApiHelpers = {
   /**
    * prepare axios config
    */
-  prepareAxiosReqConfig: (params?: Params, headers = {}, responseType?: ResponseType, config?: AxiosRequestConfig): AxiosRequestConfig => {
+  prepareAxiosReqConfig: (
+    params?: Params,
+    headers = {},
+    responseType?: ResponseType,
+    config?: AxiosRequestConfig
+  ): AxiosRequestConfig => {
     const configToPass = {
-      headers: headers ? { ...headers }: {},
+      headers: headers ? { ...headers } : {},
       params,
-      responseType: responseType ? responseType: 'json',
-      ...config
+      responseType: responseType || 'json',
+      ...config,
     };
-    return configToPass
-  }
-}
+    return configToPass;
+  },
+};
 
 export default BaseApiHelpers;

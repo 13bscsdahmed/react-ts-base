@@ -1,16 +1,18 @@
+import React from 'react';
 import { RouteObject } from 'react-router';
-import Login from '@modules/public/pages/Login';
 import { routesConfig } from '@shared/configs/routes.config';
+
+const Login = React.lazy(() => import('@modules/public/pages/Login/Login'));
 
 const PublicRoutes: RouteObject[] = [
   {
     index: true,
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: routesConfig.public.login,
-    element: <Login/>,
-  }
-]
+    element: <Login />,
+  },
+];
 
 export default PublicRoutes;

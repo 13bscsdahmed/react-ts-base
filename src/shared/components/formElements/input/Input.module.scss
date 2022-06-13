@@ -1,0 +1,25 @@
+.input {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+label {
+  width: 120px;
+}
+
+.input label {
+  font-weight: bold;
+  margin-right: 1rem;
+}
+
+.input input {
+  width: 9rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+  padding-left: 0.5rem;
+}
+
+.error {
+  margin: 4px 0;
+  color: red;
+}

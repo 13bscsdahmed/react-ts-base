@@ -1,3 +1,3 @@
 export const TRANSLATIONS_FR = {
-  test: 'test french value'
+  test: 'test french value',
 };

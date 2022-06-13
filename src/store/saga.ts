@@ -1,7 +1,11 @@
 import { all, fork } from 'redux-saga/effects';
-import { UserSagas } from './user/UserSagas';
+import { UserSagas, TodoSagas, ConfigSagas } from '@store/slices';
 
-// watcher saga
+export interface SagaAction<t> {
+  type: string;
+  payload: t;
+}
+
 export default function* rootSaga() {
-  yield all([fork(UserSagas)]);
+  yield all([fork(UserSagas), fork(TodoSagas), fork(ConfigSagas)]);
 }
